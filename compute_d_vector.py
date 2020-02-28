@@ -20,11 +20,12 @@ from data_io import ReadList,read_conf_inp,str_to_bool
 import sys
 
 # Model to use for computing the d-vectors
-model_file='/home/mirco/sincnet_models/SincNet_TIMIT/model_raw.pkl' # This is the model to use for computing the d-vectors (it should be pre-trained using the speaker-id DNN)
-cfg_file='/home/mirco/SincNet/cfg/SincNet_TIMIT.cfg' # Config file of the speaker-id experiment used to generate the model
-te_lst='data_lists/TIMIT_test.scp' # List of the wav files to process
-out_dict_file='d_vect_timit.npy' # output dictionary containing the a sentence id as key as the d-vector as value
-data_folder='/home/mirco/Dataset/TIMIT_norm_nosil'
+model_file='sincnet_models/SincNet_TIMIT/model_raw.pkl' # This is the model to use for computing the d-vectors (it should be pre-trained using the speaker-id DNN)
+cfg_file='cfg/SincNet_TIMIT.cfg' # Config file of the speaker-id experiment used to generate the model
+#te_lst='data_lists/TIMIT_test.scp' # List of the wav files to process
+te_lst='test.scp'
+out_dict_file='d_vect_dr1_fcjf00.npy' # output dictionary containing the a sentence id as key as the d-vector as value
+data_folder='timit'
 
 avoid_small_en_fr=True
 energy_th = 0.1  # Avoid frames with an energy that is 1/10 over the average energy
@@ -249,7 +250,7 @@ with torch.no_grad():
          dict_key=wav_lst_te[i].split('/')[-2]+'/'+wav_lst_te[i].split('/')[-1]
          d_vect_dict[dict_key]=d_vect_out.cpu().numpy()
          print(dict_key)
-
+d_vect_dict={"41":sum(d_vect_dict.values())}
 # Save the dictionary
 np.save(out_dict_file, d_vect_dict)
          
