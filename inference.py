@@ -15,9 +15,9 @@ from data_io import ReadList,read_conf,str_to_bool
 
 np.set_printoptions(threshold=1e6)
 
-pt_file="/home/gamut/Downloads/SincNet_test/sincnet_models/SincNet_TIMIT/model_raw.pkl"
+pt_file="SincNet_demo/exp/SincNet_TIMIT/model_raw.pkl"
 # test
-wav_lst_te="timit.wav"
+wav_lst_te="SincNet_demo/timit.wav"
 #user_label={0:"adarsh",1:"anuj",2:"piyush",3:"peeyush",4:"sameer",5:"rajat",6:"rachna",7:"sangram",8:"shashikant",9:"karan",10:"eram",11:"anjani",12:"akash"}
 #[windowing]
 fs=int(16000)

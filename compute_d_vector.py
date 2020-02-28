@@ -20,12 +20,12 @@ from data_io import ReadList,read_conf_inp,str_to_bool
 import sys
 
 # Model to use for computing the d-vectors
-model_file='sincnet_models/SincNet_TIMIT/model_raw.pkl' # This is the model to use for computing the d-vectors (it should be pre-trained using the speaker-id DNN)
-cfg_file='cfg/SincNet_TIMIT.cfg' # Config file of the speaker-id experiment used to generate the model
+model_file="SincNet_demo/sincnet_models/SincNet_TIMIT/model_raw.pkl" # This is the model to use for computing the d-vectors (it should be pre-trained using the speaker-id DNN)
+cfg_file='SincNet_demo/cfg/SincNet_TIMIT.cfg' # Config file of the speaker-id experiment used to generate the model
 #te_lst='data_lists/TIMIT_test.scp' # List of the wav files to process
-te_lst='test.scp'
-out_dict_file='d_vect_dr1_fcjf00.npy' # output dictionary containing the a sentence id as key as the d-vector as value
-data_folder='timit'
+te_lst='SincNet_demo/test.scp'
+out_dict_file='SincNet_demo/d_vect_dr1_fcjf00.npy' # output dictionary containing the a sentence id as key as the d-vector as value
+data_folder='SincNet_demo/timit'
 
 avoid_small_en_fr=True
 energy_th = 0.1  # Avoid frames with an energy that is 1/10 over the average energy
